@@ -4,7 +4,7 @@
   "description": "Fisheye, un site accessible pour une plateforme de photographes.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss ./public/css/style.css"
+    "sass": "sass --watch ./public/sass/main.scss ./public/css/style.css"
   },
   "repository": {
     "type": "git",

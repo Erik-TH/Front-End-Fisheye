@@ -1,50 +1,48 @@
-@import url("photographer.css");
-
-body {
-    font-family: "DM Sans", sans-serif;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+ul {
+  list-style: none;
 }
 
 h1 {
-    color: #901C1C;
-    margin-right: 100px;
+  margin-right: 100px;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+  height: 50px;
+  margin-left: 100px;
 }
 
-.photographer_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 100px;
+body {
+  font-family: "DM Sans", sans-serif;
 }
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+h1 {
+  color: #901C1C;
 }
 
-.photographer_section article h2 {
-    color: #D3573C;
-    font-size: 36px;
+.photographer-section {
+  display: grid;
+  gap: 30px;
 }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
-}
+/*# sourceMappingURL=style.css.map */
