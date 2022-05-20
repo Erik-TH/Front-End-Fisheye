@@ -1,6 +1,6 @@
 @use "../utils" as *;
 
-.photographer_section {
+.photographer-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
@@ -31,22 +31,22 @@
 .photographerCard {
     min-width: 301px;
     
-    & __link {
+    &__link {
         display: flex;
         flex-flow: column;
         align-items: center;
         text-decoration: none;
     }
 
-    & __img {
+    &__img {
         border-radius: 100%;
         object-fit: cover;
     }
 
-    & __infos {
+    &__infos {
         text-align: center;
 
-        & --location {
+        &--location {
             color: $colorPrimary;
             font-size: 13px;
             margin: 0;
@@ -59,7 +59,7 @@
             line-height: 13px;
         }
 
-        & --price {
+        &--price {
             color: $colorBackground-dark;
             font-size: 9px;
             margin: 0;

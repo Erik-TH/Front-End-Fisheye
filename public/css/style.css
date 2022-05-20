@@ -40,9 +40,122 @@ h1 {
   color: #901C1C;
 }
 
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 30px 0;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+}
+.header h1 {
+  grid-area: 1/2/2/3;
+  place-self: center end;
+  font-size: 0.875rem;
+}
+@media screen and (min-width: 600px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+}
+.header__logo {
+  grid-area: 1/1/2/2;
+  place-self: center start;
+  height: 31px;
+}
+.header__logo img {
+  width: 125px;
+}
+@media screen and (min-width: 375px) {
+  .header__logo {
+    height: 37px;
+  }
+  .header__logo img {
+    width: 150px;
+  }
+}
+.header nav {
+  grid-area: 2/1/3/3;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1160px) {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  .header h1 {
+    font-size: 2.25rem;
+  }
+  .header__logo {
+    height: 50px;
+  }
+  .header__logo img {
+    width: 200px;
+  }
+}
+
+.main {
+  padding-top: 25px;
+  padding-bottom: 100px;
+}
+
 .photographer-section {
   display: grid;
-  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+}
+.photographer-section article {
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.photographer-section article img {
+  height: 200px;
+  width: 200px;
+}
+.photographer-section article h2 {
+  color: #D3573C;
+  font-size: 36px;
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}
+
+.photographerCard {
+  min-width: 301px;
+}
+.photographerCard__link {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  text-decoration: none;
+}
+.photographerCard__img {
+  border-radius: 100%;
+  object-fit: cover;
+}
+.photographerCard__infos {
+  text-align: center;
+}
+.photographerCard__infos--location {
+  color: #901C1C;
+  font-size: 13px;
+  margin: 0;
+  line-height: 17px;
+}
+.photographerCard__infos--tagline {
+  font-size: 10px;
+  margin: 0;
+  line-height: 13px;
+}
+.photographerCard__infos--price {
+  color: #525252;
+  font-size: 9px;
+  margin: 0;
+  line-height: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */
