@@ -1,5 +1,69 @@
+@use "../utils" as *;
 
-.photographer-section {
+.photographer_section {
     display: grid;
-    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+
+    & article {
+        justify-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & img {
+            height: 200px;
+            width: 200px;
+        }
+
+        & h2 {
+            color: $colorSecondary;
+            font-size: 36px;
+            margin-top: 0.5em;
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+.photographerCard {
+    min-width: 301px;
+    
+    & __link {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    & __img {
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    & __infos {
+        text-align: center;
+
+        & --location {
+            color: $colorPrimary;
+            font-size: 13px;
+            margin: 0;
+            line-height: 17px;
+        }
+
+        &--tagline {
+            font-size: 10px;
+            margin: 0;
+            line-height: 13px;
+        }
+
+        & --price {
+            color: $colorBackground-dark;
+            font-size: 9px;
+            margin: 0;
+            line-height: 12px;
+        }
+    }
 }

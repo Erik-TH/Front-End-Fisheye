@@ -1,4 +1,4 @@
-class FetchApi {
+class PhotographerApi {
 	constructor(url) {
 		this._url = url;
 	}
@@ -6,6 +6,6 @@ class FetchApi {
 	async get() {
 		return fetch(this._url)
 			.then(res => res.json())
-			.catch(err => console.log('an error occurs', err));
+			.catch(err => console.log('error', err));
 	}
 }
