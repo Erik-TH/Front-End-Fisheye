@@ -36,17 +36,4 @@
         margin: 0 auto;
     }
 
-
-    @media screen and (min-width: 1160px){
-        display: flex;
-        align-items: center;
-
-        h1{ font-size: 2.25rem; }
-
-        &__logo{
-            height: 50px;
-    
-            img{ width: 200px; }
-        }
-    }
 }
