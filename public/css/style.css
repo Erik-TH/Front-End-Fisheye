@@ -82,7 +82,7 @@ h1 {
 
 .photographer-section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   margin-top: 100px;
 }
@@ -102,6 +102,12 @@ h1 {
   font-size: 36px;
   margin-top: 0.5em;
   margin-bottom: 0;
+}
+@media screen and (max-width: 768px) {
+  .photographer-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+  }
 }
 
 .photographerCard {

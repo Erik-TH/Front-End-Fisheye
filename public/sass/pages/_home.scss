@@ -2,7 +2,7 @@
 
 .photographer-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 70px;
     margin-top: 100px;
 
@@ -24,6 +24,11 @@
             margin-top: 0.5em;
             margin-bottom: 0;
         }
+    }
+
+    @include breakpoints(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 30px;
     }
 }
 
