@@ -26,4 +26,36 @@ class Photographer {
     `);
 	}
 
+	getPhotographerInfo () {
+		return `
+		  <div class="photograph-profil__infos">
+			<h1 class="photograph-profil__infos photograph-profil__infos--title">${this.name}</h1>
+			<p class="photograph-profil__infos photograph-profil__infos--location">${this.city}, ${this.country}</p>
+			<p class="photograph-profil__infos photograph-profil__infos--tagline">${this.tagline}</p>
+		  </div>
+		`;
+	}
+
+	getPhotographerImg () {
+		return `
+		  <div class="photograph-profil__portrait">
+			<img class="photograph-profil__portrait" src="${this.picture}" alt="${this.name}">
+		  </div>
+		`;
+	}
+
+	getPhotographerContact () {
+		return `
+	  <div class="photograph-profil__contact">
+		<button id="modal_btn--contact" class="btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
+	  </div>
+	  `;
+	}
+
+	getPhotographerProfilDOM () {
+		return document.createRange().createContextualFragment(
+			this.getPhotographerInfo() + this.getPhotographerContact() + this.getPhotographerImg()
+		);
+	}
+
 }

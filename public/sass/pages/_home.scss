@@ -19,17 +19,17 @@
 
         & h2 {
             color: $colorSecondary;
-            font-size: 36px;
+            font-size: 2.25rem;
             margin-top: 0.5em;
             margin-bottom: 0;
         }
     }
-
+    
     @include breakpoints(tablet) {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px 30px;
     }
-    
+
     @include breakpoints(desktop) {
         grid-template-columns: repeat(3, 1fr);
         gap: 70px;
@@ -38,13 +38,12 @@
 
 
 .photographerCard {
-    min-width: 301px;
+    text-align: center;
     
     &__link {
         display: flex;
         flex-flow: column;
         align-items: center;
-        text-decoration: none;
     }
 
     &__img {
@@ -53,26 +52,25 @@
     }
 
     &__infos {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
 
         &--location {
             color: $colorPrimary;
-            font-size: 13px;
-            margin: 0;
-            line-height: 17px;
+            font-size: 0.85rem;
+            line-height: 0.85rem;
         }
 
         &--tagline {
-            font-size: 10px;
-            margin: 0;
-            line-height: 13px;
+            font-size: 0.65rem;
+            line-height: 0.65rem;
         }
 
         &--price {
-            color: $colorBackground-dark;
-            font-size: 9px;
-            margin: 0;
-            line-height: 12px;
+            color: $colorText-dark;
+            font-size: 0.65rem;
+            line-height: 0.65rem;
         }
     }
 }

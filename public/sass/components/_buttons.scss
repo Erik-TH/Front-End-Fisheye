@@ -1,0 +1,17 @@
+@use "../utils" as *;
+.btn {
+
+    &--contact{
+        font-size: 20px;
+        font-weight: bold;
+        color: $colorText-light;
+        padding: 11px;
+        width: 170px;
+        height: 70px;
+        border: none;
+        background-color: $colorPrimary;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "DM Sans", sans-serif;
+    }
+}
