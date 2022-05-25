@@ -2,9 +2,9 @@ class MediaFactory {
 	constructor(mediaData, photographerFolder) {
 		const type = ('image' in mediaData) ? 'image' : 'video';
 		if (type === 'image') {
-			return new ImageMedia(mediaData, photographerFolder);
+			return new MediaImage(mediaData, photographerFolder);
 		} else if (type === 'video') {
-			return new VideoMedia(mediaData, photographerFolder);
+			return new MediaVideo(mediaData, photographerFolder);
 		}
 	}
 }

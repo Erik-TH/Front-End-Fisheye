@@ -12,44 +12,44 @@ class Photographer {
   
 	getUserCardDOM () {
 		return htmlToElement(`
-      <article class="photographerCard">
-        <a class="photographerCard__link" href="photographer.html?id=${this.id}" title="Lien vers le photographe ${this.name}" aria-label="Lien vers le photographe ${this.name}">
-          <img class="photographerCard__img" src="${this.picture}" alt="${this.name}">
-          <h2 class="photographerCard__title">${this.name}</h2>
-        </a>
-        <div class="photographerCard__infos">
-          <p class="photographerCard__infos--location">${this.city}, ${this.country}</p>
-          <p class="photographerCard__infos--tagline">${this.tagline}</p>
-          <p class="photographerCard__infos--price">${this.price}€/jour</p>
-        </div>
-      </article>
-    `);
+		<article class="photographerCard">
+        	<a class="photographerCard__link" href="photographer.html?id=${this.id}" title="Lien vers le photographe ${this.name}" aria-label="Lien vers le photographe ${this.name}">
+				<img class="photographerCard__img" src="${this.picture}" alt="${this.name}">
+          		<h2 class="photographerCard__title">${this.name}</h2>
+        	</a>
+        	<div class="photographerCard__infos">
+          		<p class="photographerCard__infos--location">${this.city}, ${this.country}</p>
+          		<p class="photographerCard__infos--tagline">${this.tagline}</p>
+          		<p class="photographerCard__infos--price">${this.price}€/jour</p>
+        	</div>
+      	</article>
+    	`);
 	}
 
 	getPhotographerInfo () {
 		return `
-		  <div class="photograph-profil__infos">
+		<div class="photograph-profil__infos">
 			<h1 class="photograph-profil__infos photograph-profil__infos--title">${this.name}</h1>
 			<p class="photograph-profil__infos photograph-profil__infos--location">${this.city}, ${this.country}</p>
 			<p class="photograph-profil__infos photograph-profil__infos--tagline">${this.tagline}</p>
-		  </div>
+		</div>
 		`;
 	}
 
 	getPhotographerImg () {
 		return `
-		  <div class="photograph-profil__portrait">
+		<div class="photograph-profil__portrait">
 			<img class="photograph-profil__portrait" src="${this.picture}" alt="${this.name}">
-		  </div>
+		</div>
 		`;
 	}
 
 	getPhotographerContact () {
 		return `
-	  <div class="photograph-profil__contact">
-		<button id="modal_btn--contact" class="btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
-	  </div>
-	  `;
+		<div class="photograph-profil__contact">
+			<button id="modal_btn--contact" class="btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
+	  	</div>
+	  	`;
 	}
 
 	getPhotographerProfilDOM () {
