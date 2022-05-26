@@ -26,7 +26,7 @@ class Photographer {
     	`);
 	}
 
-	getPhotographerInfo () {
+	getPhotographerInfos () {
 		return `
 		<div class="photograph-profil__infos">
 			<h1 class="photograph-profil__infos photograph-profil__infos--title">${this.name}</h1>
@@ -36,7 +36,7 @@ class Photographer {
 		`;
 	}
 
-	getPhotographerImg () {
+	getPhotographerPortrait () {
 		return `
 		<div class="photograph-profil__portrait">
 			<img class="photograph-profil__portrait" src="${this.picture}" alt="${this.name}">
@@ -54,7 +54,7 @@ class Photographer {
 
 	getPhotographerProfilDOM () {
 		return document.createRange().createContextualFragment(
-			this.getPhotographerInfo() + this.getPhotographerContact() + this.getPhotographerImg()
+			this.getPhotographerInfos() + this.getPhotographerContact() + this.getPhotographerPortrait()
 		);
 	}
 

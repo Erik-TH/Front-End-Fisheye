@@ -1,0 +1,34 @@
+@use "../utils" as *;
+
+.mediaCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 3rem;
+    gap: 2rem;
+    
+    &__media {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        
+        // media link
+        &__thumbnail {
+            position: relative;
+            display: block;
+            cursor: pointer;
+             
+            &--img, --video{
+                display: block;
+                object-fit: cover;
+                border-radius: 5px;
+                overflow: hidden;
+            }
+        }
+
+        &__media-infos {
+            display: flex;
+            justify-content: space-between;
+            color: $colorPrimary;
+        }
+    }
+}
