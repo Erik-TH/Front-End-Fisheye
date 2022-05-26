@@ -1,0 +1,16 @@
+@use "../utils" as *;
+
+// section medias
+.photograph-medias {
+    width: 90%;
+    margin: auto;
+
+    & .photograph-medias__filters {
+        display: flex;
+        gap: 2rem;
+        margin-top: 1rem;
+        align-items: center;
+    }
+
+
+}

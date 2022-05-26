@@ -1,7 +1,8 @@
 @use "../utils" as *;
+
 .btn {
 
-    &--contact{
+    &--contact {
         font-size: 20px;
         font-weight: bold;
         color: $colorText-light;
@@ -13,5 +14,10 @@
         border-radius: 5px;
         cursor: pointer;
         font-family: "DM Sans", sans-serif;
+    }
+
+    &--sort {
+
+
     }
 }

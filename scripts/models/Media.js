@@ -7,12 +7,12 @@ class Media {
 		this.price = mediaData.price;
 		this.title = mediaData.title;
 
-		this.photographerfolder =  photographerFolder;
+		this.photographerFolder = photographerFolder;
 	}
 
 	getMediaCardsDOM () {
-		return HTMLOListElement(`
-        ${this.getTargetDOM}
+		return htmlToElement(`
+        ${this.getTargetDOM()}
         <div class="mediaCards__infos">
             <p class="mediaCards__infos--title">${this.title}</p>
         </div>

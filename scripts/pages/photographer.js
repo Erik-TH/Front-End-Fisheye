@@ -24,14 +24,14 @@ function displayPhotographerData () {
 	photographerSection.appendChild(photographerProfilDOM);
 }
 
-function displayMediasCards () {
+function displayMediaCards () {
 	const mediaSection = document.querySelector('.mediaCards');
 
 	mediaSection.textContent = '';
 	currentPhotographerMedias.forEach(media => {
 		const mediaCardsDOM = media.getMediaCardsDOM();
 		mediaSection.appendChild(mediaCardsDOM);
-	})
+	});
 }
 
 function sortMedias (filter) {
@@ -62,10 +62,13 @@ async function init () {
 		925: 'Rhode',
 		195: 'Marcel'
 	};
+	console.log(photographersFolders);
+
+	currentPhotographerMedias = medias.map(elt => new MediaFactory(elt, photographersFolders[photographerId]));
   
 	displayPhotographerData ();
 	sortMedias(currentFilter);
-	displayMediasCards();
+	displayMediaCards();
 }
   
 init();
