@@ -5,15 +5,10 @@ class MediaImage extends Media {
 		this.image = mediaData.image;
 	}
 
-	// getTargetDOM () {
-	// 	return `
-    //   <img id="${this.id}" class="mediaCard__media open_lightbox" src="public/assets/photographers/${this.photographerFolder}/${this.image}" alt="${this.title}"
-	//   />
-	//   `;
-	// }
+	// Target article media : mediaCard__media
 	getTargetDOM () {
 		return `
-		<img id="${this.id}" class="mediaCards__media"
+		<img id="${this.id}" class="mediaCard__media"
 		src="public/assets/photographers/${this.photographerFolder}/${this.image}"
 		alt="${this.title}"
 		`;

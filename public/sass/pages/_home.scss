@@ -39,6 +39,11 @@
 
 .photographerCard {
     text-align: center;
+
+    &__portrait {
+        border-radius: 100%;
+        object-fit: cover;
+    }
     
     &__link {
         display: flex;

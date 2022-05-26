@@ -53,26 +53,17 @@ h1 {
   margin-top: 3rem;
   gap: 2rem;
 }
-.mediaCards__media {
-  width: 100%;
-  max-width: 350px;
-  margin: 0 auto;
-}
-.mediaCards__media__thumbnail {
-  position: relative;
-  display: block;
-  cursor: pointer;
-}
-.mediaCards__media__thumbnail--img, .mediaCards__media__thumbnail --video {
-  display: block;
-  object-fit: cover;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.mediaCards__media__media-infos {
+
+.mediaCard {
   display: flex;
   justify-content: space-between;
-  color: #901C1C;
+  gap: 2rem;
+}
+.mediaCard__media {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .header {
@@ -183,6 +174,10 @@ h1 {
 
 .photographerCard {
   text-align: center;
+}
+.photographerCard__portrait {
+  border-radius: 100%;
+  object-fit: cover;
 }
 .photographerCard__link {
   display: flex;
