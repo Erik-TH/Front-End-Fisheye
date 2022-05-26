@@ -1,0 +1,59 @@
+@use "../utils" as *;
+
+.photograph-medias__filters-menu {
+    top: 100;
+    z-index: 20;
+    line-height: 50px;
+    padding-left: 0;
+}
+
+.photograph-medias__filters-menu i,
+.photograph-medias__filters-menu--list i {
+    margin-left: 25px;
+    pointer-events: none;
+}
+
+.photograph-medias__filters-menu--list {
+    list-style: none;
+    width: 170px;
+    border-radius: 5px;
+    color: white;
+    background: $colorPrimary;
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    line-height: 50px;
+    z-index: 10;
+}
+
+.photograph-medias__filters-menu--list > li {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    padding-left: 12px;
+    height: 50px;
+    border: none;
+    background-color: $colorPrimary;
+    cursor: pointer;
+    position: relative;
+}
+
+.photograph-medias__filters-menu--list > li::before {
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid white;
+    width: calc(100% - 22px);
+    bottom : 0;
+}
+
+.photograph-medias__filters-menu--list > li:last-child:before {
+    border: none;
+}
+
+.photograph-medias__filters-menu--list > li:hover,
+.photograph-medias__filters-menu--list > li:focus {
+    background-color: $colorSecondary;   
+    color: black;
+}

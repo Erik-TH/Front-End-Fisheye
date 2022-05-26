@@ -33,12 +33,55 @@
 
           <div class="photograph-medias__filters--menu">
 
-            <button id="btn--sort" class="btn--contact btn--sort"></button>
+            <!-- listbox indicate the popup is a listbox -->
+            <!-- aria-expended indicate if element or grouping element is currently expended -->
+            <button
+              id="sortingButton"
+              class="btn btn--sort photograph-medias-menu__active"
+              aria-controls="filterList"            
+              aria-haspopup="listbox"
+              aria-expanded="false"
+            >
+            Popularité
+            </button>
 
-            <ul id="filterList" class="photograph-medias__filters-menu--list displayNone">
-              <li id="filter_popular">Trier par popularité</li>
-              <li id="filter_date">Trier par date</li>
-              <li id="filter_title">Trier par titre</li>
+            <!-- aria-activedescendant : current active -->
+            <ul
+              id="filterList"
+              class="photograph-medias-menu__active--list displayNone"
+              aria-activedescendant="filter_popular"
+              role="menu"
+            >
+
+              <!-- aria-labelledby the button -->
+              <li
+                id="filter_popular"
+                role="menuitem"
+                aria-label="Trier par popularité"
+                aria-current="true"
+                aria-labelledby="sortingButton"
+              >
+                Popularité
+              </li>
+
+              <li
+                id="filter_date"
+                role="menuitem"
+                aria-label="Trier par date"
+                aria-labelledby="sortingButton"
+              >
+                Date
+              </li>
+
+              <li
+                id="filter_title"
+                role="menuitem"
+                aria-label="Trier par titre"
+                aria-labelledby="sortingButton"
+              >
+                Titre
+              </li>
+
             </ul>
 
           </div>

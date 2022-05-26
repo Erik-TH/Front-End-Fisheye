@@ -4,10 +4,22 @@ let currentPhotographer = null;
 let currentPhotographerMedias = null;
 // set to popular by default
 let currentFilter = 'filter_popular';
-// Code for action (enter (keyCode = 13) espace (keyCode = 32))
+// Code for action (enter (keyCode press = 13) espace (keyCode press = 32))
 const keyboardAction = ['Enter', 'Space'];
 
+// selectors
+// select button filter
+const selectFilter = document.querySelector('.photograph-medias-menu__active');
+// button filter ul
+const selectFilterList = document.querySelector('.photograph-medias-menu__active--list');
+// button filter li
+const selectFilterListLink = document.querySelectorAll('.photograph-medias-menu__active--list > li');
+
+
+
 // display functions
+
+
 
 function displayPhotographerData () {
 	const photographerSection = document.querySelector('.photograph-profil');
@@ -41,6 +53,88 @@ function displayMediaCards () {
 	});
 }
 
+function filterActions () {
+
+	selectFilterListLink.forEach(element => {
+		
+		element.addEventListener('click', (e) => {
+			activeFilter (e);
+		});
+
+		// keydown event is fired for all keys unlike keypress
+		element.addEventListener('keydown', (e) => {
+			if (keyboardAction.includes(e.code)) {
+				e.preventDefault();
+				activeFilter (e);
+			}
+		});
+
+		element.addEventListener('focus', (e) => {
+			selectFilterList.setAttribute('aria-activedescendant', e.target.id);
+		});
+	});
+
+	// menu drop down
+	selectFilter.addEventListener('click', () => {
+		toggleFilterMenu();
+	});
+
+	// close menu by click or escape key
+
+	// click outside menu to close
+	document.addEventListener('click', () => {
+		// if open : === true
+		if (selectFilter.getAttribute('aria-expanded') === 'true' && !(e.target.getAttribute('role') === 'listbox') && !(e.target.getAttribute('id') === 'sortingButton')) {
+			toggleFilterMenu ();
+		}
+	});
+
+	// escape key to close
+
+	document.addEventListener('keydown', (e) => {
+		if (selectFilter.getAttribute('aria-expanded') === 'true') {
+			if (e.code === 'Escape') {
+				toggleFilterMenu();
+			}
+		}
+	});
+}
+
+function activeFilter (event) {
+	let currentFilter = event.target;
+	sortMedias (currentFilter.id);
+
+	// inject icon FA chevron down in dropped down menu
+	selectFilter.innerHTML - `${currentFilter.textContent}<i class="fa-solid fa-chevron-down"></i>`;
+
+	// remove current sorting - criteria aria-current
+	selectFilterListLink.forEach(element => element.removeAttribute('aria-current'));
+	
+	// add new selection
+	currentFilter.setAttribute('aria-current', true);
+
+	toggleFilterMenu();
+	displayMediaCards();
+	// add focus()
+	selectFilter.focus();
+}
+
+// toggle filter menu
+function toggleFilterMenu () {
+	selectFilter.classList.toggle('displaNone');
+	selectFilterList.classList.toggle('displayNone');
+
+	// add attribute to element - expend
+	selectFilter.setAttribute(
+
+		'aria-expended',
+		// set opposite value
+		selectFilter.getAttribute('aria-expended') === 'false'
+
+	);
+}
+
+
 // display by filter
 function sortMedias (filter) {
 	currentPhotographerMedias.sort((a, b) => {
@@ -58,8 +152,8 @@ function likesCounter (mediaId) {
 		heartFilledMedia (mediaId);
 	});
 	likeButton.addEventListener('keydown', e => {
-		const keyCode = e.code;
-		if (codeAction.includes(keyCode)) heartFilledMedia (mediaId);
+		const keyboardAction = e.code;
+		if (keyboardAction.includes(keyboardAction)) heartFilledMedia (mediaId);
 	});
 }
 
@@ -130,6 +224,7 @@ async function init () {
 	sortMedias(currentFilter);
 	displayMediaCards();
 	displayInsertData();
+	filterActions();
 }
   
 init();
