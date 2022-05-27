@@ -1,10 +1,10 @@
 @use "../utils" as *;
 
 .btn {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 500;
     color: $colorText-light;
-    padding: 11px;
+    padding: 0.7em;
     width: 170px;
     height: 70px;
     border: none;
@@ -13,11 +13,11 @@
     cursor: pointer;
     font-family: "DM Sans", sans-serif;
 
+    &:hover { background-color: $colorSecondary; color: black;}
+    // &:focus { background-color: $colorSecondary; color: black;}
+
     &--contact {
     }
-
     &--sort {
-
-
     }
 }

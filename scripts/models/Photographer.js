@@ -51,7 +51,7 @@ class Photographer {
 	getPhotographerContact () {
 		return `
 		<div class="photograph-profil__contact">
-			<button id="modal_btn--contact" class="btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
+			<button id="modal_btn--contact" class="btn btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
 	  	</div>
 	  	`;
 	}
@@ -65,8 +65,8 @@ class Photographer {
 	// Advertising Insert - bottom page
 	getAdvertisingInsertDOM () {
 		return document.createRange().createContextualFragment(`
-		  <p>
-		  	<span id="photograph-advertisingInsert__totalLikes">${this.totalLikes}</span>
+		  <p class="advertisingInsert_infos">
+		  	<span id="advertisingInsert__totalLikes">${this.totalLikes}</span>
 		  	<i class="fa-solid fa-heart"></i>
 		  </p>
 		  <p>${this.price}€ / jour</p>
@@ -87,7 +87,7 @@ class Photographer {
 	
 	// to add
 	advertisingInsertDOM () {
-		const totalPhotographerLikesElement = document.querySelector('#photograph-advertisingInsert__totalLikes');
+		const totalPhotographerLikesElement = document.querySelector('#advertisingInsert__totalLikes');
 		totalPhotographerLikesElement.textContent = this.totalLikes;
 	}
 }

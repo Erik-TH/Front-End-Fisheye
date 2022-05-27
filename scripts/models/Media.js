@@ -48,17 +48,15 @@ class Media {
 				<p class="mediaCard__infos--likes">
 					<span class="fillLike"
 						id="totalMedialikes--${this.id}"
-						aria-label="Total likes">
-							${this.likes}
+						aria-label="Total likes">${this.likes}
 					</span>
 					<i id="likes--${this.id}"
 						class="${heartLikeCount} fa-heart"
-						aria-label="like"
-					>
+						aria-label="like">
 					</i>
 				</p>
 			</div>
-        </div>
+        </article>
         `);
 	}
 }

@@ -1,0 +1,36 @@
+@use "../utils" as *;
+
+.mediaCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 3rem;
+    gap: 1rem;
+}
+
+.mediaCard {
+    color: $colorPrimary;
+    position: relative;
+    
+    &__media{
+        height: 300px;
+        width: 350px;
+        max-width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    &__infos {
+        display: flex;
+        font-size: 1rem;
+        line-height: 2rem;
+
+        &--title {
+        }
+
+        &--likes {
+            font-weight: 500;
+            width: 100px;
+            text-align: right;
+        }
+    }
+}

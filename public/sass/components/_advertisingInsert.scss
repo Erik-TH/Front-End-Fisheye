@@ -1,0 +1,22 @@
+@use "../utils" as *;
+
+.advertisingInsert {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 20rem;
+    background-color: lighten($color: $colorSecondary, $amount: 20%);
+    position: sticky;
+    bottom: 0;
+    left: 100vw;
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    padding: 0 2em;
+    border-radius: 10px 10px 0 0;
+
+    &__infos {
+        padding: 1.25em 0;
+    }
+}

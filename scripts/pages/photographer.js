@@ -29,7 +29,7 @@ function displayPhotographerData () {
 
 // bottom advertising insert
 function displayInsertData () {
-	const advertisingInsertSection = document.querySelector('.photograph-advertisingInsert');
+	const advertisingInsertSection = document.querySelector('.advertisingInsert');
 
 	// Count total media likes and assign to photographer
 	let totalPhotographerLikes = 0;

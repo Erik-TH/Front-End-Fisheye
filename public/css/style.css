@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-weight: 400;
 }
 
 a {
@@ -16,10 +13,9 @@ ul {
 }
 
 body {
-  font-size: 1rem;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 1.25em;
 }
 
 .displayNone {
@@ -35,10 +31,10 @@ h1 {
 }
 
 .btn {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 500;
   color: #FAFAFA;
-  padding: 11px;
+  padding: 0.7em;
   width: 170px;
   height: 70px;
   border: none;
@@ -47,81 +43,37 @@ h1 {
   cursor: pointer;
   font-family: "DM Sans", sans-serif;
 }
-.mediaCards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: 3rem;
-  gap: 2rem;
+.btn:hover {
+  background-color: #D3573C;
+  color: black;
 }
-
-.mediaCard {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-}
-.mediaCard__media {
-  width: 350px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.photograph-medias__filters-menu {
-  top: 100;
-  z-index: 20;
-  line-height: 50px;
-  padding-left: 0;
-}
-
-.photograph-medias__filters-menu i,
-.photograph-medias__filters-menu--list i {
-  margin-left: 25px;
-  pointer-events: none;
-}
-
-.photograph-medias__filters-menu--list {
-  list-style: none;
-  width: 170px;
-  border-radius: 5px;
+.photograph-medias-menu {
+  font-size: 1.25rem;
+  font-weight: 500;
   color: white;
-  background: #901C1C;
-  overflow: hidden;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  line-height: 50px;
-  z-index: 10;
-}
-
-.photograph-medias__filters-menu--list > li {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  padding-left: 12px;
-  height: 50px;
-  border: none;
-  background-color: #901C1C;
-  cursor: pointer;
+  padding: 0.75em;
+  height: 3rem;
   position: relative;
 }
 
-.photograph-medias__filters-menu--list > li::before {
-  content: "";
-  position: absolute;
-  border-bottom: 1px solid white;
-  width: calc(100% - 22px);
+.advertisingInsert {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 20rem;
+  background-color: #e69f8f;
+  position: sticky;
   bottom: 0;
+  left: 100vw;
+  text-align: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  padding: 0 2em;
+  border-radius: 10px 10px 0 0;
 }
-
-.photograph-medias__filters-menu--list > li:last-child:before {
-  border: none;
-}
-
-.photograph-medias__filters-menu--list > li:hover,
-.photograph-medias__filters-menu--list > li:focus {
-  background-color: #D3573C;
-  color: black;
+.advertisingInsert__infos {
+  padding: 1.25em 0;
 }
 
 .header {
@@ -130,7 +82,6 @@ h1 {
   justify-content: space-between;
   align-items: center;
   height: 90px;
-  width: 90%;
   margin: auto;
 }
 .header h1 {
@@ -161,7 +112,6 @@ h1 {
   justify-content: space-between;
   align-items: center;
   background-color: #FAFAFA;
-  width: 90%;
   margin: auto;
   padding: 50px;
   border-radius: 10px;
@@ -193,6 +143,35 @@ h1 {
 .main {
   padding-top: 25px;
   padding-bottom: 100px;
+}
+
+.mediaCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.mediaCard {
+  color: #901C1C;
+  position: relative;
+}
+.mediaCard__media {
+  height: 300px;
+  width: 350px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.mediaCard__infos {
+  display: flex;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+.mediaCard__infos--likes {
+  font-weight: 500;
+  width: 100px;
+  text-align: right;
 }
 
 .photographer-section {
@@ -267,14 +246,36 @@ h1 {
 }
 
 .photograph-medias {
-  width: 90%;
   margin: auto;
 }
 .photograph-medias .photograph-medias__filters {
   display: flex;
   gap: 2rem;
   margin-top: 1rem;
-  align-items: center;
+  align-items: baseline;
+}
+.photograph-medias .photograph-medias__filters--title {
+  line-height: 1rem;
+  font-size: 1.25rem;
+}
+.photograph-medias-menu__active {
+  position: relative;
+  align-self: flex-start;
+}
+.photograph-medias-menu__active--list {
+  position: absolute;
+  top: 0;
+  z-index: 20;
+  line-height: 3.125rem;
+  padding-left: 0;
+  color: #FAFAFA;
+  background-color: #901C1C;
+  border-radius: 5px;
+  width: 170px;
+  padding: 0.8em;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
