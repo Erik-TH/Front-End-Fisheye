@@ -1,0 +1,76 @@
+@use "../utils" as *;
+
+.modal {
+    border-radius: 5px;
+    border: 0;
+    background-color: lighten($color: $colorSecondary, $amount: 10%);
+    padding: 2rem;
+    width: 670px;
+
+    &::backdrop {background: rgba(196, 196, 196, 0.4);}
+
+    & header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 4rem;
+        
+        & img {
+            cursor: pointer;
+            align-self: center;
+        }
+
+        & h2 {
+            font-size: 4rem;
+            font-weight: normal;
+            line-height: 5rem;
+            margin: 0;
+        }
+    }
+
+    & textarea {
+        width: 100%;
+        height: 170px;
+        border-radius: 5px;
+        border: 0;
+    }
+}
+
+
+
+
+
+
+form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form label {
+    color: $colorText-dark;
+    font-size: 2rem;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+form input {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+}
+
+form input,
+form textarea {
+    font-size: 36px;
+    line-height: 47px;
+    font-family: "DM Sans", sans-serif
+}

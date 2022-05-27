@@ -7,4 +7,5 @@ class MediaFactory {
 			return new MediaVideo(mediaData, photographerFolder);
 		}
 	}
+	
 }

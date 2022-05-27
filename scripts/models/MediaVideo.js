@@ -14,5 +14,15 @@ class MediaVideo extends Media {
 			</video>
 			`;
 	}
+
+	getTargetLightboxDOM () {
+		return `
+		  <video 
+			class="lightbox__media"
+			controls
+			src="public/assets/photographers/${this.photographerFolder}/${this.video}">
+		  </video>
+		`;
+	}
 	
 }

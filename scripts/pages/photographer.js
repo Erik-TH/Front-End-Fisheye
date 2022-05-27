@@ -2,12 +2,14 @@
 
 let currentPhotographer = null;
 let currentPhotographerMedias = null;
+let lightboxCurrentMediaId = null;
 // set to popular by default
 let currentFilter = 'filter_popular';
 // Code for action (enter (keyCode press = 13) espace (keyCode press = 32))
 const keyboardAction = ['Enter', 'Space'];
 
 // selectors
+
 // select button filter
 const selectFilter = document.querySelector('.photograph-medias-menu__active');
 // button filter ul
@@ -15,11 +17,11 @@ const selectFilterList = document.querySelector('.photograph-medias-menu__active
 // button filter li
 const selectFilterListLink = document.querySelectorAll('.photograph-medias-menu__active--list > li');
 
-
+const lightbox = document.querySelector('#lightbox');
+const lightboxClose = document.querySelector('.lightboxClose');
+const lightboxMediaLeftContent = document.querySelector('.lightbox__content--leftColumn');
 
 // display functions
-
-
 
 function displayPhotographerData () {
 	const photographerSection = document.querySelector('.photograph-profil');
@@ -50,6 +52,141 @@ function displayMediaCards () {
 		const mediaCardsDOM = media.getMediaCardsDOM();
 		mediaSection.appendChild(mediaCardsDOM);
 		likesCounter (media.id);
+		// 
+		addEventListenersToCard (mediaCardsDOM);
+	});
+}
+
+// display media in lightbox
+function displayMediaLightbox (media) {
+	const lightboxMediaContent = document.querySelector('.lightbox__content--middleColumn');
+	if (document.body.contains(lightboxMediaContent)) lightboxMediaContent.remove();
+	const mediaDOMElement = media.getMediaLightboxDOM();
+	lightboxMediaLeftContent.after(mediaDOMElement);
+	lightboxCurrentMediaId = media.id;
+}
+
+function lightboxMediaId (mediaId) {
+	const selectedMedia = currentPhotographerMedias.filter((media) => media.id === mediaId)[0];
+	displayMediaLightbox(selectedMedia);
+	lightbox.showModal();
+}
+
+function addEventListenersToCard (card) {
+
+	card.addEventListener('click', (e) => {
+		const stringId = e.target.id;
+		const mediaId = Number(stringId.replace('media--', ''));
+		if (!e.target.classList.contains('fa-heart') && !e.target.classList.contains('media__infos--title') && !e.target.classList.contains('media__infos--likes') && !e.target.classList.contains('fillLike') && !e.target.classList.contains('media__infos')) lightboxMediaId (mediaId);
+	});
+	
+	// Add eventListener on enter/space to display media
+	card.addEventListener('keydown', (e) => {
+		const stringId = e.target.id;
+		const mediaId = Number(stringId.replace('media--', ''));
+		if (keyboardAction.includes(e.code) && !e.target.classList.contains('fa-heart') && !e.target.classList.contains('media__infos--title')) lightboxMediaId (mediaId);
+	});
+
+}
+
+function insertPhotographerModalDOM () {
+	const mainSection = document.querySelector('main');
+	const modalDOM = currentPhotographer.getPhotographerModalDOM();
+	mainSection.after(modalDOM);
+}
+
+function modalUtilities () {
+	insertPhotographerModalDOM ();
+	const modal = document.querySelector('#contact_modal');
+	const openModal = document.querySelector('#modal_btn--contact');
+	const closeModal = document.querySelector('.close_modal');
+	const form = document.querySelector('#form');
+  
+	openModal.addEventListener('click', () => {
+		modal.showModal();
+	});
+  
+	closeModal.addEventListener('click', () => {
+		modal.close();
+	});
+  
+	form.addEventListener('submit', (e) => {
+	// Can use 'form' or 'e.target'
+		const formData = new FormData(e.target);
+		// Using reduce with object decomposition
+		console.log(
+			[...formData.entries()].reduce(
+				(previousValue, currentValue) => {
+					previousValue[currentValue[0]] = currentValue[1];
+					return previousValue;
+				},
+				{}
+			)
+		);
+		form.reset();
+	});
+}
+
+function lightboxUtilities () {
+	const nextSlideButton = document.querySelector('.lightbox__rightButton');
+	const previousSlideButton = document.querySelector('.lightbox__leftButton');
+	const lightbox = document.querySelector('#lightbox');
+  
+	const displayNewMedia = (button, newMediaIndex) => {
+		let media = currentPhotographerMedias[newMediaIndex];
+		// Display new item
+		displayMediaLightbox(media);
+		// Define current item
+		lightboxCurrentMediaId = media.id;
+		// Focus
+		button.focus();
+	};
+	
+	const nextSlide = () => {
+	// Check if current item is last and define next item
+		const lighboxCurrentMediaIndex = currentPhotographerMedias.findIndex((media) => media.id === lightboxCurrentMediaId);
+		let nextMediaIndex;
+		if (lighboxCurrentMediaIndex === currentPhotographerMedias.length - 1) {
+			nextMediaIndex = 0;
+		} else {
+			nextMediaIndex = lighboxCurrentMediaIndex + 1;
+		}
+		displayNewMedia (nextSlideButton, nextMediaIndex);
+	};
+  
+	const previousSlide = () => {
+	// Check if current item is first and define next item
+		const lighboxCurrentMediaIndex = currentPhotographerMedias.findIndex((media) => media.id === lightboxCurrentMediaId);
+		let nextMediaIndex;
+		if (lighboxCurrentMediaIndex === 0) {
+			nextMediaIndex = currentPhotographerMedias.length - 1;
+		} else {
+			nextMediaIndex = lighboxCurrentMediaIndex - 1;
+		}
+		displayNewMedia (previousSlideButton, nextMediaIndex);
+	};
+  
+	nextSlideButton.addEventListener('click', nextSlide);
+	previousSlideButton.addEventListener('click', previousSlide);
+	nextSlideButton.addEventListener('keydown', e => {
+		if (keyboardAction.includes(e.code)) nextSlide ();
+	});
+	previousSlideButton.addEventListener('keydown', e => {
+		if (keyboardAction.includes(e.code)) previousSlide ();
+	});
+	lightbox.addEventListener('keydown', e => {
+		if (lightbox.hasAttribute('open')) {
+			if (e.code === 'ArrowLeft') previousSlide ();
+			if (e.code === 'ArrowRight') nextSlide ();
+		}
+	});
+	lightboxClose.addEventListener('click', () => {
+		lightbox.close();
+	});
+	lightboxClose.addEventListener('keydown', (e) => {
+		if (keyboardAction.includes(e.code)) {
+			lightbox.close();
+		}
 	});
 }
 
@@ -123,6 +260,7 @@ function activeFilter (event) {
 function toggleFilterMenu () {
 	selectFilter.classList.toggle('displaNone');
 	selectFilterList.classList.toggle('displayNone');
+
 
 	// add attribute to element - expend
 	selectFilter.setAttribute(
@@ -224,6 +362,8 @@ async function init () {
 	sortMedias(currentFilter);
 	displayMediaCards();
 	displayInsertData();
+	lightboxUtilities();
+	modalUtilities();
 	filterActions();
 }
   

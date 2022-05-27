@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Shrikhand&display=swap");
-* {
-  box-sizing: border-box;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -47,6 +43,16 @@ h1 {
   background-color: #D3573C;
   color: black;
 }
+.btn--contact {
+  margin-top: 1.5rem;
+}
+.btn__lightbox {
+  width: 2rem;
+  height: 2rem;
+  border-right: 8px solid #901C1C;
+  border-top: 8px solid #901C1C;
+}
+
 .photograph-medias-menu {
   font-size: 1.25rem;
   font-weight: 500;
@@ -74,6 +80,144 @@ h1 {
 }
 .advertisingInsert__infos {
   padding: 1.25em 0;
+}
+
+#lightbox {
+  border: 0px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+#lightbox::backdrop {
+  background-color: white;
+}
+
+.lightbox__content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 98%;
+  width: 1200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  /*background-color: red;*/
+}
+
+.lightbox__content--rightColumn {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lightbox__mediaContent {
+  width: 900px;
+  height: 800px;
+}
+
+.lightbox__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.lightbox__mediaTitle h2 {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 24px;
+  line-height: 31px;
+  color: var(--secondary-light-text-color);
+}
+
+.lightbox__closeButton {
+  position: absolute;
+  top: 40px;
+  left: 11px;
+  filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(3204%) hue-rotate(349deg) brightness(88%) contrast(92%);
+}
+
+.lightbox__button {
+  width: 34px;
+  height: 34px;
+  border-right: 8px solid var(--primary-dark-background-color);
+  border-top: 8px solid var(--primary-dark-background-color);
+}
+
+.lightbox__leftButton {
+  transform: rotate(-135deg);
+}
+
+.lightbox__rightButton {
+  transform: rotate(45deg);
+}
+
+.modal {
+  border-radius: 5px;
+  border: 0;
+  background-color: #dc7b66;
+  padding: 2rem;
+  width: 670px;
+}
+.modal::backdrop {
+  background: rgba(196, 196, 196, 0.4);
+}
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 4rem;
+}
+.modal header img {
+  cursor: pointer;
+  align-self: center;
+}
+.modal header h2 {
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 5rem;
+  margin: 0;
+}
+.modal textarea {
+  width: 100%;
+  height: 170px;
+  border-radius: 5px;
+  border: 0;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form label {
+  color: #525252;
+  font-size: 2rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
+}
+
+form input {
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
+}
+
+form input,
+form textarea {
+  font-size: 36px;
+  line-height: 47px;
+  font-family: "DM Sans", sans-serif;
 }
 
 .header {
@@ -148,7 +292,7 @@ h1 {
 .mediaCards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 3rem;
+  margin: 3rem auto 0 auto;
   gap: 1rem;
 }
 
@@ -165,7 +309,7 @@ h1 {
 }
 .mediaCard__infos {
   display: flex;
-  font-size: 1rem;
+  font-size: rem;
   line-height: 2rem;
 }
 .mediaCard__infos--likes {

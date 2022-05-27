@@ -42,7 +42,6 @@
               aria-haspopup="listbox"
               aria-expanded="false"
             >
-            Popularité
             </button>
 
             <!-- aria-activedescendant : current active -->
@@ -62,6 +61,7 @@
                 aria-labelledby="sortingButton"
               >
                 Popularité
+                <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
               </li>
 
               <li
@@ -97,28 +97,26 @@
       <!-- advertising insert : bottom page -->
       <aside class="advertisingInsert"></aside>
 
+      <!-- <aside id="modal-lightbox" class="lightbox" tabindex="0" aria-label="Vue rapproché">
+        inject js
+      </aside> -->
+
+      <dialog id="lightbox">
+        <div class="lightbox__content">
+          <div class="lightbox__content--leftColumn">
+            <div class="btn__lightbox lightbox__leftButton" aria-label="Image précédente" tabindex="0" ></div>
+          </div>
+          <div class="lightbox__content--rightColumn">
+            <div class="lightbox__closeButton lightboxClose">
+              <img class="lightboxClose" src="public/assets/icons/close.svg" alt="Fermez la vue raprochée" tabindex="0" />
+            </div>
+            <div class="btn__lightbox lightbox__rightButton" aria-label="Image suivante" tabindex="0" ></div>
+          </div>
+        </div>
+      </dialog>
 
     </main>
 
-    <!-- <div id="contact_modal">
-
-			<div class="modal">
-
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="public/assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-        
-			</div>
-		</div> -->
 
     <script src="scripts/utils/htmlToElement.js"></script>
 
@@ -131,7 +129,9 @@
     <script src="scripts/models/Media.js"></script>
     <script src="scripts/models/MediaImage.js"></script>
     <script src="scripts/models/MediaVideo.js"></script>
-
+    
+    
     <script src="scripts/pages/photographer.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
   </body>
 </html>

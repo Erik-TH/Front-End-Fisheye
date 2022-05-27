@@ -44,7 +44,9 @@ class Media {
 		${this.getTargetDOM()}
 
 			<div class="mediaCard__infos">
+
 				<p class="mediaCard__infos--title">${this.title}</p>
+
 				<p class="mediaCard__infos--likes">
 					<span class="fillLike"
 						id="totalMedialikes--${this.id}"
@@ -55,8 +57,22 @@ class Media {
 						aria-label="like">
 					</i>
 				</p>
+
 			</div>
         </article>
         `);
+	}
+
+	getMediaLightboxDOM () {
+		return htmlToElement(`
+		  <div class="lightbox__content--middleColumn">
+			<div class="lightbox__mediaContent" aria-label="${this.title}, vue rapprochée">
+			  ${this.getTargetLightboxDOM()}
+			</div>
+			<div class="lightbox__mediaTitle">
+			  <h2>${this.title}</h2>
+			</div>
+		  </div>
+		`);
 	}
 }

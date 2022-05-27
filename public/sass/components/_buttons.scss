@@ -17,7 +17,15 @@
     // &:focus { background-color: $colorSecondary; color: black;}
 
     &--contact {
+        margin-top: 1.5rem;
     }
     &--sort {
+    }
+
+    &__lightbox {
+        width: 2rem;
+        height: 2rem;
+        border-right: 8px solid $colorPrimary;
+        border-top: 8px solid $colorPrimary;
     }
 }

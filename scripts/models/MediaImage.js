@@ -12,7 +12,14 @@ class MediaImage extends Media {
 		class="mediaCard__media"
 		src="public/assets/photographers/${this.photographerFolder}/${this.image}"
 		alt="${this.title}"
+		/>`;
+	}
+
+	getTargetLightboxDOM () {
+		return `
+		  <img class="lightbox__media"
+		  src="public/assets/photographers/${this.photographerFolder}/${this.image}"
+		  alt="${this.title}" />
 		`;
-	
 	}
 }

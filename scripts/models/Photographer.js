@@ -90,4 +90,34 @@ class Photographer {
 		const totalPhotographerLikesElement = document.querySelector('#advertisingInsert__totalLikes');
 		totalPhotographerLikesElement.textContent = this.totalLikes;
 	}
+
+	getPhotographerModalDOM () {
+		return htmlToElement(`
+		  <dialog class="modal" id="contact_modal" aria-labelledby="modalTitle">
+			  <header>
+				<h2 id="modalTitle">Contactez-moi<br>${this.name}</h2>
+				<img class="close_modal" src="public/assets/icons/close.svg" alt="Fermez la modale" tabindex="0" />
+			  </header>
+			  <form id="form" method="dialog">
+				<div>
+				  <label id="label_first" for="first">Prénom</label>
+				  <input type="text" id="first" name="first" aria-labelledby="label_first" />
+				</div>
+				<div>
+				  <label id="label_last" for="last">Nom</label>
+				  <input type="text" id="last" name="last" aria-labelledby="label_last" />
+				</div>
+				<div>
+				  <label id="label_email" for="email">Email</label>
+				  <input type="email" id="email" name="email" aria-labelledby="label_email" />
+				</div>
+				<div>
+				  <label id="label_message" for="message">Votre message</label>
+				  <textarea id="message" name="message" aria-labelledby="label_message"></textarea>
+				</div>
+				<button class="btn btn--contact" aria-label="Envoyer">Envoyer</button>
+			  </form>
+		  </dialog>
+		`);
+	}
 }
