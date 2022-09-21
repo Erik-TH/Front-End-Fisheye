@@ -247,7 +247,7 @@ function activeFilter (event) {
 	sortMedias (currentFilter.id);
 
 	// inject icon FA chevron down in dropped down menu
-	selectFilter.innerHTML - `${currentFilter.textContent}<i class="fa-solid fa-chevron-down"></i>`;
+	selectFilter.innerHTML - `${currentFilter.textContent}<span class="fa-solid fa-chevron-down"></span>`;
 
 	// remove current sorting - criteria aria-current
 	selectFilterListLink.forEach(element => element.removeAttribute('aria-current'));

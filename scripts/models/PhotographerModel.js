@@ -69,7 +69,7 @@ export class PhotographerModel {
 		return document.createRange().createContextualFragment(`
 		  <p class="advertisingInsert_infos">
 		  	<span id="advertisingInsert__totalLikes">${this.totalLikes}</span>
-		  	<i class="fa-solid fa-heart"></i>
+		  	<span class="fa-solid fa-heart"></span>
 		  </p>
 		  <p>${this.price}€ / jour</p>
 		`);
