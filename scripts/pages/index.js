@@ -46,7 +46,7 @@
 // init();
 
 async function displayData (photographers) {
-	const photographersSection = document.querySelector('.photographer-section');
+	const photographersSection = document.querySelector('.section__photographers');
   
 	photographers.forEach((photographer) => {
 	  // eslint-disable-next-line no-undef
