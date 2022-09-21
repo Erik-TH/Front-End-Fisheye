@@ -1,4 +1,7 @@
-class MediaFactory {
+import { MediaImage } from "../models/MediaModelImage.js";
+import { MediaVideo } from "../models/MediaModelVideo.js";
+
+export class MediaFactory {
 	constructor(mediaData, photographerFolder) {
 		const type = ('image' in mediaData) ? 'image' : 'video';
 		if (type === 'image') {

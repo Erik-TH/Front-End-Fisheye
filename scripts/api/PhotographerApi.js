@@ -1,4 +1,4 @@
-class PhotographerApi {
+export class PhotographerApi {
 	constructor(url) {
 		this._url = url;
 	}

@@ -9,7 +9,7 @@
 // }
 
 
-class contactForm {
+export class contactForm {
 	constructor(data) {
 		this.city = data.city;
 		this.country = data.country;

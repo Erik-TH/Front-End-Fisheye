@@ -1,3 +1,7 @@
+import { PhotographerApi } from "../api/PhotographerApi.js";
+import { MediaFactory } from "../factories/MediaFactory.js";
+import { PhotographerFactory } from "../factories/PhotographerFactory.js";
+
 // variables
 
 let currentPhotographer = null;
@@ -114,6 +118,7 @@ function modalUtilities () {
 	// Can use 'form' or 'e.target'
 		const formData = new FormData(e.target);
 		// Using reduce with object decomposition
+		// submit to console log
 		console.log(
 			[...formData.entries()].reduce(
 				(previousValue, currentValue) => {
@@ -354,7 +359,6 @@ async function init () {
 		925: 'Rhode',
 		195: 'Marcel'
 	};
-	console.log(photographersFolders);
 
 	currentPhotographerMedias = medias.map(elt => new MediaFactory(elt, photographersFolders[photographerId]));
   

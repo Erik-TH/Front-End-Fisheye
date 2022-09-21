@@ -1,4 +1,6 @@
-class Photographer {
+import { htmlToElement } from "../utils/htmlToElement.js";
+
+export class PhotographerModel {
 	constructor(data) {
 		this.city = data.city;
 		this.country = data.country;

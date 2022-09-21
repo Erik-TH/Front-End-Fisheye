@@ -1,4 +1,6 @@
-class Media {
+import { htmlToElement } from "../utils/htmlToElement.js";
+
+export class MediaModel {
 	constructor (mediaData, photographerFolder) {
 		this.date = mediaData.date;
 		this.id = mediaData.id;
