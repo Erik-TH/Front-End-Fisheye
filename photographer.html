@@ -25,19 +25,19 @@
         <!-- inject js -->
       </section>
         
-      <section id="photograph-medias" class="photograph-medias">
+      <section id="photographMedias" class="photographMedias">
 
-        <div class="photograph-medias__filters">
+        <div class="photographMedias__filters">
 
-          <p class="photograph-medias__filters--title">Trier par</p>
+          <p class="photographMedias__filters--title">Trier par</p>
 
-          <div class="photograph-medias-menu">
+          <div class="photographMedias__filtersMenu">
 
             <!-- listbox indicate the popup is a listbox -->
             <!-- aria-expended indicate if element or grouping element is currently expended -->
             <button
               id="sortingButton"
-              class="btn btn--sort photograph-medias-menu__active"
+              class="btn btn--sort photographMedias__filtersMenu__active"
               aria-controls="filterList"            
               aria-haspopup="listbox"
               aria-expanded="false"
@@ -47,7 +47,7 @@
             <!-- aria-activedescendant : current active -->
             <ul
               id="filterList"
-              class="photograph-medias-menu__active--list displayNone"
+              class="photographMedias__filtersMenu__active--list displayNone"
               aria-activedescendant="filter_popular"
               role="menu"
             >
@@ -86,7 +86,7 @@
 
           </div>
           
-        </div> <!-- /photograph-medias__filters -->
+        </div> <!-- /photographMedias__filters -->
         
         <div id="gallery" class="mediaCards" aria-label="Gallerie photos et vidéos">
           <!-- inject js -->

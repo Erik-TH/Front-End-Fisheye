@@ -53,7 +53,7 @@ h1 {
   border-top: 8px solid #901C1C;
 }
 
-.photograph-medias-menu {
+.photographMedias__filtersMenu {
   font-size: 1.25rem;
   font-weight: 500;
   color: white;
@@ -389,24 +389,24 @@ form textarea {
   line-height: 0.65rem;
 }
 
-.photograph-medias {
+.photographMedias {
   margin: auto;
 }
-.photograph-medias .photograph-medias__filters {
+.photographMedias .photographMedias__filters {
   display: flex;
   gap: 2rem;
   margin-top: 1rem;
   align-items: baseline;
 }
-.photograph-medias .photograph-medias__filters--title {
+.photographMedias .photographMedias__filters--title {
   line-height: 1rem;
   font-size: 1.25rem;
 }
-.photograph-medias-menu__active {
+.photographMedias-menu__active {
   position: relative;
   align-self: flex-start;
 }
-.photograph-medias-menu__active--list {
+.photographMedias-menu__active--list {
   position: absolute;
   top: 0;
   z-index: 20;

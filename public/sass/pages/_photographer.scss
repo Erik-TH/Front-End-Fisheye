@@ -1,11 +1,11 @@
 @use "../utils" as *;
 
 // section medias
-.photograph-medias {
+.photographMedias {
     // width: 90%;
     margin: auto;
 
-    & .photograph-medias__filters {
+    & .photographMedias__filters {
         display: flex;
         gap: 2rem;
         margin-top: 1rem;

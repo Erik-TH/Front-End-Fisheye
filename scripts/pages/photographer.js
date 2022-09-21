@@ -11,11 +11,11 @@ const keyboardAction = ['Enter', 'Space'];
 // selectors
 
 // select button filter
-const selectFilter = document.querySelector('.photograph-medias-menu__active');
+const selectFilter = document.querySelector('.photographMedias__filtersMenu__active');
 // button filter ul
-const selectFilterList = document.querySelector('.photograph-medias-menu__active--list');
+const selectFilterList = document.querySelector('.photographMedias__filtersMenu__active--list');
 // button filter li
-const selectFilterListLink = document.querySelectorAll('.photograph-medias-menu__active--list > li');
+const selectFilterListLink = document.querySelectorAll('.photographMedias__filtersMenu__active--list > li');
 
 const lightbox = document.querySelector('#lightbox');
 const lightboxClose = document.querySelector('.lightboxClose');
