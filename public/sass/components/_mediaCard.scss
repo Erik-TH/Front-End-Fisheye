@@ -1,12 +1,5 @@
 @use "../utils" as *;
 
-.mediaCards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 3rem auto 0 auto;
-    gap: 1rem;
-}
-
 .mediaCard {
     color: $colorPrimary;
     position: relative;

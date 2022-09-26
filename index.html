@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="public/assets/images/logo.png"> <!-- replaced favicon - resize logo needed -->
+    <link rel="icon" type="image/png" href="public/assets/icons/favicon.png">
     <link href="public/css/style.css" rel="stylesheet" type="text/css" />
     <!-- font imported in css  -->
     <!-- <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> -->
@@ -15,17 +15,25 @@
   <body>
 
     <header class="header">
-      <a class="header__logo" href="index.html">
+      <a class="header__logo" href="index.html" aria-label="Redirection page d'accueil">
         <img src="public/assets/images/logo.png" class="logo" alt="Fisheye's logo"/>
       </a>
-      <h1>Nos photographes</h1>
+      <h1 class="header__title">Nos photographes</h1>
     </header>
 
     <main id="main" class="main">
         <section id="section__photographers" class="section__photographers"></section>
     </main>
 
-    <!-- <script src="scripts/utils/htmlToElement.js"></script> -->
+    <footer>
+      <p>
+        <a href="https://achecker.achecks.ca/checker/index.php?uri=referer&gid=WCAG2-AA">
+          <img src="https://achecker.achecks.ca/images/icon_W2_aa.jpg" alt="WCAG 2.0 (Level AA)" height="32" width="102" />
+        </a>
+      </p>
+    </footer>
+
+    <!-- <script src="scripts/utils/displayTemplate.js"></script> -->
     <!-- <script src="scripts/api/PhotographerApi.js"></script> -->
     <!-- <script src="scripts/factories/PhotographerFactory.js"></script> -->
     <!-- <script src="scripts/models/Photographer.js"></script> -->

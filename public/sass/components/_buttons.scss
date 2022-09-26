@@ -16,7 +16,7 @@
     &:hover { background-color: $colorSecondary; color: black;}
     // &:focus { background-color: $colorSecondary; color: black;}
 
-    &--contact {
+    &__contact {
         margin-top: 1.5rem;
     }
 
@@ -25,5 +25,12 @@
         height: 2rem;
         border-right: 8px solid $colorPrimary;
         border-top: 8px solid $colorPrimary;
+    }
+
+    &__lightbox-close {
+        position: absolute;
+        top: 40px;
+        left: 11px;
+        filter: brightness(0) saturate(100%) invert(13%) sepia(85%) saturate(3204%) hue-rotate(349deg) brightness(88%) contrast(92%);
     }
 }

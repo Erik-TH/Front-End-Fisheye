@@ -1,4 +1,4 @@
-import { htmlToElement } from "../utils/htmlToElement.js";
+import { displayTemplate } from "../utils/displayTemplate.js";
 
 export class MediaModel {
 	constructor (mediaData, photographerFolder) {
@@ -36,11 +36,11 @@ export class MediaModel {
 		}
 	}
 
-	getMediaCardsDOM () {
+	getGalleryDOM () {
 
 		const heartLikeCount = this.isLiked ? 'fa-solid' : 'fa-regular';
 
-		return htmlToElement(`
+		return displayTemplate(`
 		<article class="mediaCard" id="media--${this.id}" tabindex="0">
 			
 		${this.getTargetDOM()}
@@ -66,14 +66,12 @@ export class MediaModel {
 	}
 
 	getMediaLightboxDOM () {
-		return htmlToElement(`
+		return displayTemplate(`
 		  <div class="lightbox__content--middleColumn">
 			<div class="lightbox__mediaContent" aria-label="${this.title}, vue rapprochée">
 			  ${this.getTargetLightboxDOM()}
 			</div>
-			<div class="lightbox__mediaTitle">
-			  <h2>${this.title}</h2>
-			</div>
+			<h2 class"ligthbox__mediatitle>${this.title}</h2>
 		  </div>
 		`);
 	}
