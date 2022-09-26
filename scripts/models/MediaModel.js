@@ -54,10 +54,10 @@ export class MediaModel {
 						id="totalMedialikes--${this.id}"
 						aria-label="Total likes">${this.likes}
 					</span>
-					<i id="likes--${this.id}"
+					<span id="likes--${this.id}"
 						class="${heartLikeCount} fa-heart"
 						aria-label="like">
-					</i>
+					</span>
 				</p>
 
 			</div>

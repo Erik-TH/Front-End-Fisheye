@@ -347,12 +347,6 @@ form textarea {
   height: 200px;
   width: 200px;
 }
-.section__photographers article h2 {
-  color: #D3573C;
-  font-size: 2rem;
-  margin-top: 0.5em;
-  margin-bottom: 0;
-}
 @media screen and (min-width: 768px) {
   .section__photographers {
     grid-template-columns: repeat(2, 1fr);
@@ -368,6 +362,12 @@ form textarea {
 
 .photographerCard {
   text-align: center;
+}
+.photographerCard__title {
+  color: #D3573C;
+  font-size: 2rem;
+  margin-top: 0.5em;
+  margin-bottom: 0;
 }
 .photographerCard__portrait {
   border-radius: 100%;

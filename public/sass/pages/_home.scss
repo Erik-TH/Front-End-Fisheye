@@ -16,13 +16,6 @@
             height: 200px;
             width: 200px;
         }
-
-        & h2 {
-            color: $colorSecondary;
-            font-size: 2rem;
-            margin-top: 0.5em;
-            margin-bottom: 0;
-        }
     }
     
     @include breakpoints(tablet) {
@@ -39,6 +32,13 @@
 
 .photographerCard {
     text-align: center;
+
+    &__title {
+        color: $colorSecondary;
+        font-size: 2rem;
+        margin-top: 0.5em;
+        margin-bottom: 0;
+    }
 
     &__portrait {
         border-radius: 100%;
