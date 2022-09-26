@@ -1,4 +1,3 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 // async function getPhotographers() {
 // 	// Penser à remplacer par les données récupérées dans le json
 // 	const photographers = [
@@ -45,11 +44,13 @@
     
 // init();
 
+import { PhotographerApi } from "../api/PhotographerApi.js";
+import { PhotographerFactory } from "../factories/PhotographerFactory.js";
+
 async function displayData (photographers) {
-	const photographersSection = document.querySelector('.photographer-section');
+	const photographersSection = document.querySelector('.section__photographers');
   
 	photographers.forEach((photographer) => {
-	  // eslint-disable-next-line no-undef
 	  const photographerModel = new PhotographerFactory(photographer);
 	  const userCardDOM = photographerModel.getUserCardDOM();
 	  photographersSection.appendChild(userCardDOM);

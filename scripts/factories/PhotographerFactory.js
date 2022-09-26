@@ -16,8 +16,10 @@
 // 	return { name, picture, getUserCardDOM };
 // }
 
-class PhotographerFactory {
+import { PhotographerModel } from "../models/PhotographerModel.js";
+
+export class PhotographerFactory {
 	constructor(data) {
-		return new Photographer(data);
+		return new PhotographerModel(data);
 	}
 }

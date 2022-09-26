@@ -1,30 +1,34 @@
+import { PhotographerApi } from "../api/PhotographerApi.js";
+import { MediaFactory } from "../factories/MediaFactory.js";
+import { PhotographerFactory } from "../factories/PhotographerFactory.js";
+
 // variables
 
 let currentPhotographer = null;
 let currentPhotographerMedias = null;
 let lightboxCurrentMediaId = null;
 // set to popular by default
-let currentFilter = 'filter_popular';
+let currentFilter = 'filter__popular';
 // Code for action (enter (keyCode press = 13) espace (keyCode press = 32))
 const keyboardAction = ['Enter', 'Space'];
 
 // selectors
 
 // select button filter
-const selectFilter = document.querySelector('.photograph-medias-menu__active');
+const selectFilter = document.querySelector('.filtersMenu-active');
 // button filter ul
-const selectFilterList = document.querySelector('.photograph-medias-menu__active--list');
+const selectFilterList = document.querySelector('.filtersMenu__list');
 // button filter li
-const selectFilterListLink = document.querySelectorAll('.photograph-medias-menu__active--list > li');
+const selectFilterListLink = document.querySelectorAll('.filtersMenu__list > li');
 
 const lightbox = document.querySelector('#lightbox');
-const lightboxClose = document.querySelector('.lightboxClose');
+const lightboxClose = document.querySelector('.btn__lightbox-close');
 const lightboxMediaLeftContent = document.querySelector('.lightbox__content--leftColumn');
 
 // display functions
 
 function displayPhotographerData () {
-	const photographerSection = document.querySelector('.photograph-profil');
+	const photographerSection = document.querySelector('.photographerProfil');
 	const photographerProfilDOM = currentPhotographer.getPhotographerProfilDOM();
 	photographerSection.appendChild(photographerProfilDOM);
 }
@@ -44,16 +48,16 @@ function displayInsertData () {
 }
 
 // display medias section cards grid
-function displayMediaCards () {
-	const mediaSection = document.querySelector('.mediaCards');
+function displayGallery () {
+	const mediaSection = document.querySelector('.gallery');
 
 	mediaSection.textContent = '';
 	currentPhotographerMedias.forEach(media => {
-		const mediaCardsDOM = media.getMediaCardsDOM();
-		mediaSection.appendChild(mediaCardsDOM);
+		const galleryDOM = media.getGalleryDOM();
+		mediaSection.appendChild(galleryDOM);
 		likesCounter (media.id);
 		// 
-		addEventListenersToCard (mediaCardsDOM);
+		addEventListenersToCard (galleryDOM);
 	});
 }
 
@@ -114,6 +118,7 @@ function modalUtilities () {
 	// Can use 'form' or 'e.target'
 		const formData = new FormData(e.target);
 		// Using reduce with object decomposition
+		// submit to console log
 		console.log(
 			[...formData.entries()].reduce(
 				(previousValue, currentValue) => {
@@ -128,8 +133,8 @@ function modalUtilities () {
 }
 
 function lightboxUtilities () {
-	const nextSlideButton = document.querySelector('.lightbox__rightButton');
-	const previousSlideButton = document.querySelector('.lightbox__leftButton');
+	const nextSlideButton = document.querySelector('.btn__lightbox--right');
+	const previousSlideButton = document.querySelector('.btn__lightbox--left');
 	const lightbox = document.querySelector('#lightbox');
   
 	const displayNewMedia = (button, newMediaIndex) => {
@@ -213,7 +218,7 @@ function filterActions () {
 
 	// menu drop down
 	selectFilter.addEventListener('click', () => {
-		toggleFilterMenu();
+		openFiltersMenu();
 	});
 
 	// close menu by click or escape key
@@ -221,8 +226,8 @@ function filterActions () {
 	// click outside menu to close
 	document.addEventListener('click', () => {
 		// if open : === true
-		if (selectFilter.getAttribute('aria-expanded') === 'true' && !(e.target.getAttribute('role') === 'listbox') && !(e.target.getAttribute('id') === 'sortingButton')) {
-			toggleFilterMenu ();
+		if (selectFilter.getAttribute('aria-expanded') === 'true' && !(e.target.getAttribute('role') === 'listbox') && !(e.target.getAttribute('id') === 'btn__sort')) {
+			openFiltersMenu ();
 		}
 	});
 
@@ -231,7 +236,7 @@ function filterActions () {
 	document.addEventListener('keydown', (e) => {
 		if (selectFilter.getAttribute('aria-expanded') === 'true') {
 			if (e.code === 'Escape') {
-				toggleFilterMenu();
+				openFiltersMenu();
 			}
 		}
 	});
@@ -242,7 +247,7 @@ function activeFilter (event) {
 	sortMedias (currentFilter.id);
 
 	// inject icon FA chevron down in dropped down menu
-	selectFilter.innerHTML - `${currentFilter.textContent}<i class="fa-solid fa-chevron-down"></i>`;
+	selectFilter.innerHTML - `${currentFilter.textContent}<span class="fa-solid fa-chevron-down"></span>`;
 
 	// remove current sorting - criteria aria-current
 	selectFilterListLink.forEach(element => element.removeAttribute('aria-current'));
@@ -250,22 +255,20 @@ function activeFilter (event) {
 	// add new selection
 	currentFilter.setAttribute('aria-current', true);
 
-	toggleFilterMenu();
-	displayMediaCards();
+	openFiltersMenu();
+	displayGallery();
 	// add focus()
 	selectFilter.focus();
 }
 
 // toggle filter menu
-function toggleFilterMenu () {
-	selectFilter.classList.toggle('displaNone');
+function openFiltersMenu () {
+	selectFilter.classList.toggle('displayNone');
 	selectFilterList.classList.toggle('displayNone');
 
 
 	// add attribute to element - expend
-	selectFilter.setAttribute(
-
-		'aria-expended',
+	selectFilter.setAttribute('aria-expended',
 		// set opposite value
 		selectFilter.getAttribute('aria-expended') === 'false'
 
@@ -276,9 +279,9 @@ function toggleFilterMenu () {
 // display by filter
 function sortMedias (filter) {
 	currentPhotographerMedias.sort((a, b) => {
-		if (filter === 'filter_popular') return b.likes - a.likes;
-		if (filter === 'filter_date') return b.date.localeCompare(a.date);
-		if (filter === 'filter_title') return a.title.localeCompare(b.title);
+		if (filter === 'filter__popular') return b.likes - a.likes;
+		if (filter === 'filter__date') return b.date.localeCompare(a.date);
+		if (filter === 'filter__title') return a.title.localeCompare(b.title);
 	});
 	currentFilter = filter;
 }
@@ -304,7 +307,7 @@ function heartFilledMedia (mediaId) {
 	currentMedia.heartFilled ();
 	if (currentMedia.isLiked) {     
 		currentPhotographer.addLike ();
-		if (currentFilter !== 'filter_popular') return;
+		if (currentFilter !== 'filter__popular') return;
 		// If first element, no need to swap it will keep first
 		if (currentMediaIndex > 0) {
 			const previousMedia = currentPhotographerMedias[currentMediaIndex - 1];
@@ -314,7 +317,7 @@ function heartFilledMedia (mediaId) {
 		}
 	} else {
 		currentPhotographer.removeLike ();
-		if (currentFilter !== 'filter_popular') return;
+		if (currentFilter !== 'filter__popular') return;
 		// If last element, no need to swap it will keep last
 		if (currentMediaIndex < currentPhotographerMedias.length - 1) {
 			const nextMedia = currentPhotographerMedias[currentMediaIndex + 1];
@@ -326,7 +329,7 @@ function heartFilledMedia (mediaId) {
 }
 
 function swapNodeFilter (nodeA, nodeB) {
-	sortMedias ('filter_popular');
+	sortMedias ('filter__popular');
 	const parentA = nodeA.parentNode;
 	const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
 	// Move `nodeA` to before the `nodeB`
@@ -354,13 +357,12 @@ async function init () {
 		925: 'Rhode',
 		195: 'Marcel'
 	};
-	console.log(photographersFolders);
 
 	currentPhotographerMedias = medias.map(elt => new MediaFactory(elt, photographersFolders[photographerId]));
   
 	displayPhotographerData ();
 	sortMedias(currentFilter);
-	displayMediaCards();
+	displayGallery();
 	displayInsertData();
 	lightboxUtilities();
 	modalUtilities();

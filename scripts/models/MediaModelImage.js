@@ -1,4 +1,5 @@
-class MediaImage extends Media {
+import { MediaModel } from "./MediaModel.js";
+export class MediaImage extends MediaModel {
 	constructor (mediaData, photographerFolder) {
 		super(mediaData, photographerFolder);
 

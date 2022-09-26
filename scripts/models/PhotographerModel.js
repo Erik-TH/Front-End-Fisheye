@@ -1,4 +1,6 @@
-class Photographer {
+import { displayTemplate } from "../utils/displayTemplate.js";
+
+export class PhotographerModel {
 	constructor(data) {
 		this.city = data.city;
 		this.country = data.country;
@@ -15,7 +17,7 @@ class Photographer {
 	}
 
 	getUserCardDOM () {
-		return htmlToElement(`
+		return displayTemplate(`
 		<article class="photographerCard">
         	<a class="photographerCard__link" href="photographer.html?id=${this.id}" title="Lien vers le photographe ${this.name}" aria-label="Lien vers le photographe ${this.name}">
 				<img class="photographerCard__portrait" src="${this.picture}" alt="${this.name}">
@@ -32,25 +34,25 @@ class Photographer {
 
 	getPhotographerInfos () {
 		return `
-		<div class="photographer-profil__infos">
-			<h1 class="photograph-profil__infos photograph-profil__infos--title">${this.name}</h1>
-			<p class="photograph-profil__infos photograph-profil__infos--location">${this.city}, ${this.country}</p>
-			<p class="photograph-profil__infos photograph-profil__infos--tagline">${this.tagline}</p>
+		<div class="photographerProfil__infos">
+			<h1 class="photographerProfil__infos photographerProfil__infos--title">${this.name}</h1>
+			<p class="photographerProfil__infos photographerProfil__infos--location">${this.city}, ${this.country}</p>
+			<p class="photographerProfil__infos photographerProfil__infos--tagline">${this.tagline}</p>
 		</div>
 		`;
 	}
 
 	getPhotographerPortrait () {
 		return `
-		<div class="photograph-profil__portrait">
-			<img class="photograph-profil__portrait" src="${this.picture}" alt="${this.name}">
+		<div class="photographerProfil__portrait">
+			<img class="photographerProfil__portrait" src="${this.picture}" alt="${this.name}">
 		</div>
 		`;
 	}
 
 	getPhotographerContact () {
 		return `
-		<div class="photograph-profil__contact">
+		<div class="photographerProfil__contact">
 			<button id="modal_btn--contact" class="btn btn--contact" aria-label="Contactez-moi">Contactez-moi</button>
 	  	</div>
 	  	`;
@@ -67,7 +69,7 @@ class Photographer {
 		return document.createRange().createContextualFragment(`
 		  <p class="advertisingInsert_infos">
 		  	<span id="advertisingInsert__totalLikes">${this.totalLikes}</span>
-		  	<i class="fa-solid fa-heart"></i>
+		  	<span class="fa-solid fa-heart"></span>
 		  </p>
 		  <p>${this.price}€ / jour</p>
 		`);
@@ -92,11 +94,11 @@ class Photographer {
 	}
 
 	getPhotographerModalDOM () {
-		return htmlToElement(`
+		return displayTemplate(`
 		  <dialog class="modal" id="contact_modal" aria-labelledby="modalTitle">
 			  <header>
 				<h2 id="modalTitle">Contactez-moi<br>${this.name}</h2>
-				<img class="close_modal" src="public/assets/icons/close.svg" alt="Fermez la modale" tabindex="0" />
+				<img class="close_modal" src="public/assets/icons/close.svg" alt="Fermer la modale" tabindex="0" />
 			  </header>
 			  <form id="form" method="dialog">
 				<div>
