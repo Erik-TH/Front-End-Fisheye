@@ -212,7 +212,7 @@ function filterActions () {
 		});
 
 		element.addEventListener('focus', (e) => {
-			selectFilterList.setAttribute('aria-activedescendant', e.target.id);
+			selectFilterList.setAttribute('aria-activedescendant', e.target.id)
 		});
 	});
 

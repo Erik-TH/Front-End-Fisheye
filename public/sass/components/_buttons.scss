@@ -14,7 +14,7 @@
     font-family: "DM Sans", sans-serif;
 
     &:hover { background-color: $colorSecondary; color: black;}
-    // &:focus { background-color: $colorSecondary; color: black;}
+    &:focus { background-color: $colorSecondary; color: black;}
 
     &__contact {
         margin-top: 1.5rem;

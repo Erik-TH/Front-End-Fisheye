@@ -67,6 +67,10 @@ h1 {
   background-color: #D3573C;
   color: black;
 }
+.btn:focus {
+  background-color: #D3573C;
+  color: black;
+}
 .btn__contact {
   margin-top: 1.5rem;
 }
