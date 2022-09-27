@@ -224,7 +224,7 @@ function filterActions () {
 	// close menu by click or escape key
 
 	// click outside menu to close
-	document.addEventListener('click', () => {
+	document.addEventListener('click', (e) => {
 		// if open : === true
 		if (selectFilter.getAttribute('aria-expanded') === 'true' && !(e.target.getAttribute('role') === 'listbox') && !(e.target.getAttribute('id') === 'btn__sort')) {
 			openFiltersMenu ();
@@ -268,9 +268,9 @@ function openFiltersMenu () {
 
 
 	// add attribute to element - expend
-	selectFilter.setAttribute('aria-expended',
+	selectFilter.setAttribute('aria-expanded',
 		// set opposite value
-		selectFilter.getAttribute('aria-expended') === 'false'
+		selectFilter.getAttribute('aria-expanded') === 'false'
 
 	);
 }
@@ -293,8 +293,8 @@ function likesCounter (mediaId) {
 		heartFilledMedia (mediaId);
 	});
 	likeButton.addEventListener('keydown', e => {
-		const keyboardAction = e.code;
-		if (keyboardAction.includes(keyboardAction)) heartFilledMedia (mediaId);
+		const keyCode = e.code;
+		if (keyboardAction.includes(keyCode)) heartFilledMedia (mediaId);
 	});
 }
 

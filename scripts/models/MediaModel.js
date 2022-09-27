@@ -56,7 +56,7 @@ export class MediaModel {
 					</span>
 					<span id="likes--${this.id}"
 						class="${heartLikeCount} fa-heart"
-						aria-label="like">
+						aria-label="like" tabindex="0">
 					</span>
 				</p>
 
