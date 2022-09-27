@@ -95,12 +95,12 @@ export class PhotographerModel {
 
 	getPhotographerModalDOM () {
 		return displayTemplate(`
-		  <dialog class="modal" id="contact_modal" aria-labelledby="modalTitle">
-			  <header>
-				<h2 id="modalTitle">Contactez-moi<br>${this.name}</h2>
+		  <dialog class="contactModal" id="contactModal" aria-labelledby="modalTitle">
+			  <header class="contactModal__header">
+				<h2 class="contactModal__header--title" id="contactModal__header--title">Contactez-moi<br>${this.name}</h2>
 				<img class="close_modal" src="public/assets/icons/close.svg" alt="Fermer la modale" tabindex="0" />
 			  </header>
-			  <form id="form" method="dialog">
+			  <form id="form" class="contactModal__form" method="dialog">
 				<div>
 				  <label id="label_first" for="first">Prénom</label>
 				  <input type="text" id="first" name="first" aria-labelledby="label_first" />

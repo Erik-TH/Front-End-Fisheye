@@ -1,6 +1,6 @@
 @use "../utils" as *;
 
-.modal {
+.contactModal {
     border-radius: 5px;
     border: 0;
     background-color: lighten($color: $colorSecondary, $amount: 10%);
@@ -9,7 +9,7 @@
 
     &::backdrop {background: rgba(196, 196, 196, 0.4);}
 
-    & header {
+    &__header {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -20,7 +20,7 @@
             align-self: center;
         }
 
-        & h2 {
+        &--title {
             font-size: 4rem;
             font-weight: normal;
             line-height: 5rem;
@@ -34,36 +34,38 @@
         border-radius: 5px;
         border: 0;
     }
-}
 
-form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-
-    label {
-        color: $colorText-dark;
-        font-size: 2rem;
-    }
-
-    div {
+    &__form {
         display: flex;
+        width: 100%;
         flex-direction: column;
-        width: 100%;
-        align-items: self-start;
-        margin-bottom: 26px;
-    }
-
-    input {
-        width: 100%;
-        height: 68px;
-        border: none;
-        border-radius: 5px;
-        
+        align-items: flex-start;
+    
+        label {
+            color: $colorText-dark;
+            font-size: 2rem;
+        }
+    
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: self-start;
+            margin-bottom: 26px;
+        }
+    
+        input {
+            width: 100%;
+            height: 68px;
+            border: none;
+            border-radius: 5px;
+            
+        }
+    
     }
 
 }
+
 
 
 

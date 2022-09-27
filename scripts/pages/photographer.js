@@ -101,7 +101,7 @@ function insertPhotographerModalDOM () {
 
 function modalUtilities () {
 	insertPhotographerModalDOM ();
-	const modal = document.querySelector('#contact_modal');
+	const modal = document.querySelector('#contactModal');
 	const openModal = document.querySelector('#modal_btn--contact');
 	const closeModal = document.querySelector('.close_modal');
 	const form = document.querySelector('#form');
