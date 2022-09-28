@@ -81,14 +81,14 @@ function addEventListenersToCard (card) {
 	card.addEventListener('click', (e) => {
 		const stringId = e.target.id;
 		const mediaId = Number(stringId.replace('media--', ''));
-		if (!e.target.classList.contains('fa-heart') && !e.target.classList.contains('media__infos--title') && !e.target.classList.contains('media__infos--likes') && !e.target.classList.contains('fillLike') && !e.target.classList.contains('media__infos')) lightboxMediaId (mediaId);
+		if (!e.target.classList.contains('fa-heart') && !e.target.classList.contains('mediaCard__infos--title') && !e.target.classList.contains('media__infos--likes') && !e.target.classList.contains('fillLike') && !e.target.classList.contains('media__infos')) lightboxMediaId (mediaId);
 	});
 	
 	// Add eventListener on enter/space to display media
 	card.addEventListener('keydown', (e) => {
 		const stringId = e.target.id;
 		const mediaId = Number(stringId.replace('media--', ''));
-		if (keyboardAction.includes(e.code) && !e.target.classList.contains('fa-heart') && !e.target.classList.contains('media__infos--title')) lightboxMediaId (mediaId);
+		if (keyboardAction.includes(e.code) && !e.target.classList.contains('fa-heart') && !e.target.classList.contains('mediaCard__infos--title')) lightboxMediaId (mediaId);
 	});
 
 }
@@ -243,17 +243,17 @@ function filterActions () {
 }
 
 function activeFilter (event) {
-	let currentFilter = event.target;
-	sortMedias (currentFilter.id);
+	let currentFilterSelected = event.target;
+	sortMedias (currentFilterSelected.id);
 
 	// inject icon FA chevron down in dropped down menu
-	selectFilter.innerHTML - `${currentFilter.textContent}<span class="fa-solid fa-chevron-down"></span>`;
+	selectFilter.innerHTML = `${currentFilterSelected.textContent}<span class="fa-solid fa-chevron-down"></span>`;
 
 	// remove current sorting - criteria aria-current
 	selectFilterListLink.forEach(element => element.removeAttribute('aria-current'));
 	
 	// add new selection
-	currentFilter.setAttribute('aria-current', true);
+	currentFilterSelected.setAttribute('aria-current', true);
 
 	openFiltersMenu();
 	displayGallery();

@@ -133,6 +133,7 @@ h1 {
 .mediaCard {
   color: #901C1C;
   position: relative;
+  width: 350px;
 }
 .mediaCard__media {
   height: 300px;
@@ -144,6 +145,7 @@ h1 {
 .mediaCard__infos {
   display: flex;
   line-height: 2rem;
+  justify-content: space-between;
 }
 .mediaCard__infos--title {
   font-size: 1rem;

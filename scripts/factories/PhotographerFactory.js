@@ -19,7 +19,7 @@
 import { PhotographerModel } from "../models/PhotographerModel.js";
 
 export class PhotographerFactory {
-	constructor(data) {
-		return new PhotographerModel(data);
-	}
+  constructor(data) {
+    return new PhotographerModel(data);
+  }
 }

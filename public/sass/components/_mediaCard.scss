@@ -3,6 +3,7 @@
 .mediaCard {
     color: $colorPrimary;
     position: relative;
+    width: 350px;
     
     &__media{
         height: 300px;
@@ -15,6 +16,7 @@
     &__infos {
         display: flex;
         line-height: 2rem;
+        justify-content: space-between;
         
         &--title {
             font-size: 1rem;
