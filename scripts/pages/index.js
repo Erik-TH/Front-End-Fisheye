@@ -58,7 +58,7 @@ async function displayData (photographers) {
 }
   
 async function init () {
-	const photographerApi = new PhotographerApi('../../data/photographers.json');
+	const photographerApi = new PhotographerApi('../data/photographers.json');
 	const { photographers } = await photographerApi.get();
 
 	displayData(photographers);
